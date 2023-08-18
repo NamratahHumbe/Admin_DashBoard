@@ -1,0 +1,80 @@
+.dashboard-container {
+    width: 100%;
+    max-width: 130rem;
+    padding: 0rem 4rem;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .dashboard1 {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .dashboardHead1 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .dashboardHead1 > .dashboard-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dashboard-head > :nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .durationButton > select {
+    border: none;
+    background: var(--orange-gradient);
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }
+  
+  .dashboard-cards {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .dashboard-card{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .dashboard-cardHead{
+    font-size: 1rem;
+  }
+  
+  .dashboard-cardHead>:nth-child(1)
+  {
+    color: rgba(255, 255, 255, 0.835);
+  }
+  
+  .dashboard-cardHead>:nth-child(2){
+    margin-left: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  
+  .dashboard-cardAmount>:nth-child(1)
+  {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.776);
+    position: relative;
+    bottom: 5px;
+  }
+  
+  
+  .dashboard-cardAmount>:nth-child(2)
+  {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 8px;
+  }

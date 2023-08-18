@@ -106,7 +106,7 @@ export const boardData = {
   columns: [
     {
       id: 1,
-      title: "Backlog",
+      title: "BACKLOG",
       cards: [
         {
           id: 1,
@@ -133,7 +133,7 @@ export const boardData = {
     },
     {
       id: 3,
-      title: "Doing",
+      title: "DOING",
       cards: [
         {
           id: 10,
@@ -149,7 +149,7 @@ export const boardData = {
     },
     {
       id: 4,
-      title: "Completed",
+      title: "COMPLETED",
       cards: [
         {
           id: 12,
@@ -160,6 +160,11 @@ export const boardData = {
           id: 13,
           title: "Modular structre",
           description: "Write css in form of modules to reduce the naming conflicts"
+        },
+        {
+          id: 14,
+          title: "Study structre",
+          description: "Write css in form of modules to set the study structre"
         }
       ]
     }
@@ -239,6 +244,51 @@ export const userData = [
     address: '722 Emie Stream',
     city: 'Lincoln',
     state: 'Nebraska',
+  },
+  {
+    name: {
+      firstName: 'Joshua',
+      lastName: 'Rolluffs',
+    },
+    address: '32188 Larkin Turnpike',
+    city: 'Charleston',
+    state: 'South Carolina',
+  },
+  {
+    name: {
+      firstName: 'Joshua',
+      lastName: 'Rolluffs',
+    },
+    address: '32188 Larkin Turnpike',
+    city: 'Charleston',
+    state: 'South Carolina',
+  },
+  {
+    name: {
+      firstName: 'Joshua',
+      lastName: 'Rolluffs',
+    },
+    address: '32188 Larkin Turnpike',
+    city: 'Charleston',
+    state: 'South Carolina',
+  },
+  {
+    name: {
+      firstName: 'Joshua',
+      lastName: 'Rolluffs',
+    },
+    address: '32188 Larkin Turnpike',
+    city: 'Charleston',
+    state: 'South Carolina',
+  },
+  {
+    name: {
+      firstName: 'Joshua',
+      lastName: 'Rolluffs',
+    },
+    address: '32188 Larkin Turnpike',
+    city: 'Charleston',
+    state: 'South Carolina',
   },
   {
     name: {
