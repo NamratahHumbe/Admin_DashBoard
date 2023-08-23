@@ -1,4 +1,4 @@
-import React from 'react'
+    import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
@@ -18,10 +18,7 @@ const Calendar = () => {
     const handleDateSelect = (selectInfo) => {
         let title = prompt('Please enter a title for the event')
         let calendarApi = selectInfo.view.calendar;
-
         calendarApi.unselect();
-
-
         if (title) {
             calendarApi.addEvent({
                 id: createEventId(),
