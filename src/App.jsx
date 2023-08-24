@@ -25,7 +25,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LayOut isLoggedIn={isLoggedIn} logOut={logOut}/>}>
-          <Route path="login" element={<Login isLoggedIn={isLoggedIn} logIn={logIn}/>} />
+          <Route path="login" 
+          element={<Login isLoggedIn={isLoggedIn} logIn={logIn}/>} 
+          />
           <Route path="dashboard" 
           element={<Dashboard />} 
           />
