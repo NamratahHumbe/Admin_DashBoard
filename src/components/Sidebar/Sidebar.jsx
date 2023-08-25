@@ -1,6 +1,6 @@
 import { MdSpaceDashboard } from "react-icons/md";
 import { AiFillCalendar, AiOutlineTable } from "react-icons/ai";
-import { FaTasks, FaUserAlt } from "react-icons/fa";
+import { FaTasks, FaSplotch } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css'
 import React from 'react'
@@ -11,12 +11,6 @@ const Sidebar = () => {
            
             <img src="./logo.png" alt="logo" className='logo' />
             <div className='menu'>
-                {/* <NavLink
-                    to="login"
-                    className='item'
-                    title={"Login"}>
-                    <FaUserAlt size={30} />
-                </NavLink> */}
                 <NavLink
                     to="dashboard"
                     className='item'
@@ -46,6 +40,13 @@ const Sidebar = () => {
                     title="Users"
                 >
                     <AiOutlineTable size={30} />
+                </NavLink>
+
+                <NavLink
+                    to="pegination"
+                    className='item'
+                    title={"InfiniteScrollPage"}>
+                    <FaSplotch size={30} />
                 </NavLink>
                
             </div>
