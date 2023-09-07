@@ -43,7 +43,7 @@ const Sidebar = () => {
                 </NavLink>
 
                 <NavLink
-                    to="pegination"
+                    to="scroll"
                     className='item'
                     title={"InfiniteScrollPage"}>
                     <FaSplotch size={30} />

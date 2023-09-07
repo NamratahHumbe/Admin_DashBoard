@@ -5,50 +5,108 @@ import Calendar from './pages/Calendar/Calendar';
 import BoardPage from './pages/Board/Board';
 import DataGrid from './pages/DataGrid/DataGrid';
 import Login from './pages/Login/Login';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Protected from './middleware/Authentication/Protected';
-import InfiniteScrollPage from './pages/Pegination/InfiniteScrollPage';
+import ScrollPage from './pages/DataGrid/ScrollPage'
+// const App = () => {
+//   const [isLoggedIn, setisLoggedIn] = useState(null);
+
+//   const logIn = (username, password) => {
+//     if (username === 'namrata' && password === 'namu') {
+//       setisLoggedIn(true);
+//     }
+
+//   };
+//   const logOut = () => {
+//     setisLoggedIn(false);
+//   };
+
+//   return (<div id="main-dashboard">
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<LayOut isLoggedIn={isLoggedIn} logOut={logOut} />}>
+//           <Route path="login"
+//             element={<Login isLoggedIn={isLoggedIn} logIn={logIn} />}
+//           />
+//           <Route path="dashboard"
+//             element={<Dashboard />}
+//           />
+//           <Route path="calendar"
+//             element={<Protected isLoggedIn={isLoggedIn}><Calendar /></Protected>}
+//           />
+//           <Route path="board"
+//             element={<Protected isLoggedIn={isLoggedIn}><BoardPage /></Protected>}
+//           />
+//           <Route path="users"
+//             element={<Protected isLoggedIn={isLoggedIn}><DataGrid /></Protected>}
+//           />
+//           <Route path="pegination"
+//           element={<InfiniteScrollPage />}
+//           />
+//         </Route>
+//       </Routes>
+//     </BrowserRouter>
+//   </div>
+//   )
+// };
+
+// export default App;
 
 const App = () => {
-  const [isLoggedIn, setisLoggedIn] = useState(null);
+  const [isLoggedIn, setisLoggedIn] = useState(
+    localStorage.getItem('isLoggedIn') === 'true' // Check if user is already logged in
+  );
 
   const logIn = (username, password) => {
     if (username === 'namrata' && password === 'namu') {
       setisLoggedIn(true);
+      localStorage.setItem('isLoggedIn', 'true'); 
     }
-
   };
+
   const logOut = () => {
     setisLoggedIn(false);
+    localStorage.setItem('isLoggedIn', 'false');
   };
 
-  return (<div id="main-dashboard">
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LayOut isLoggedIn={isLoggedIn} logOut={logOut} />}>
-          <Route path="login"
-            element={<Login isLoggedIn={isLoggedIn} logIn={logIn} />}
-          />
-          <Route path="dashboard"
-            element={<Dashboard />}
-          />
-          <Route path="calendar"
-            element={<Protected isLoggedIn={isLoggedIn}><Calendar /></Protected>}
-          />
-          <Route path="board"
-            element={<Protected isLoggedIn={isLoggedIn}><BoardPage /></Protected>}
-          />
-          <Route path="users"
-            element={<Protected isLoggedIn={isLoggedIn}><DataGrid /></Protected>}
-          />
-          <Route path="pegination"
-          element={<InfiniteScrollPage />}
-          />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </div>
-  )
+  useEffect(() => {
+    const storedLoginState = localStorage.getItem('isLoggedIn') === 'true';
+    if (storedLoginState) {
+      setisLoggedIn(true);
+    }
+  }, []);
+
+  return (
+    <div id="main-dashboard">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<LayOut isLoggedIn={isLoggedIn} logOut={logOut} />}
+          >
+            <Route path="login" element={<Login isLoggedIn={isLoggedIn} logIn={logIn} />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route
+              path="calendar"
+              element={<Protected isLoggedIn={isLoggedIn}><Calendar /></Protected>}
+            />
+            <Route
+              path="board"
+              element={<Protected isLoggedIn={isLoggedIn}><BoardPage /></Protected>}
+            />
+            <Route
+              path="users"
+              element={<Protected isLoggedIn={isLoggedIn}><DataGrid /></Protected>}
+            />
+            <Route
+              path="scroll"
+              element={<Protected isLoggedIn={isLoggedIn}><ScrollPage /></Protected>}
+            />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default App;
