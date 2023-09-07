@@ -8,6 +8,7 @@ import Login from './pages/Login/Login';
 import { useState, useEffect } from 'react';
 import Protected from './middleware/Authentication/Protected';
 import ScrollPage from './pages/DataGrid/ScrollPage'
+import axios from 'axios';
 // const App = () => {
 //   const [isLoggedIn, setisLoggedIn] = useState(null);
 
@@ -40,9 +41,10 @@ import ScrollPage from './pages/DataGrid/ScrollPage'
 //           <Route path="users"
 //             element={<Protected isLoggedIn={isLoggedIn}><DataGrid /></Protected>}
 //           />
-//           <Route path="pegination"
-//           element={<InfiniteScrollPage />}
-//           />
+//           <Route
+// path="scroll"
+// element={<Protected isLoggedIn={isLoggedIn}><ScrollPage /></Protected>}
+// />
 //         </Route>
 //       </Routes>
 //     </BrowserRouter>
@@ -57,12 +59,27 @@ const App = () => {
     localStorage.getItem('isLoggedIn') === 'true' // Check if user is already logged in
   );
 
-  const logIn = (username, password) => {
-    if (username === 'namrata' && password === 'namu') {
-      setisLoggedIn(true);
-      localStorage.setItem('isLoggedIn', 'true'); 
+  // const logIn = (username, password) => {
+  //   if (username === 'namrata' && password === 'namu') {
+  //     setisLoggedIn(true);
+  //     localStorage.setItem('isLoggedIn', 'true');
+  //   }
+  // };
+  const logIn = async (username, password) => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/login', { username, password }); 
+  
+      if (response.status === 200) {
+        setisLoggedIn(true);
+        localStorage.setItem('isLoggedIn', 'true');
+      } else {
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
     }
   };
+  
 
   const logOut = () => {
     setisLoggedIn(false);
